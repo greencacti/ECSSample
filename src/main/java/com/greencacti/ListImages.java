@@ -16,10 +16,10 @@ public class ListImages {
         IClientProfile profile  = DefaultProfile.getProfile("cn-hangzhou", "LTAIbCevn9IEeRPy", "ut953MfoS9hLMsbUC3JPInZhdyRWOG");
         IAcsClient client = new DefaultAcsClient(profile);
 
-        DescribeImagesRequest describe = new DescribeImagesRequest();
-        describe.setImageOwnerAlias("system");
-        DescribeImagesResponse response = client.getAcsResponse(describe);
-        for(DescribeImagesResponse.Image image:response.getImages()){
+        DescribeImagesRequest describeImagesRequest = new DescribeImagesRequest();
+        describeImagesRequest.setImageOwnerAlias("system");
+        DescribeImagesResponse describeImagesResponse = client.getAcsResponse(describeImagesRequest);
+        for(DescribeImagesResponse.Image image:describeImagesResponse.getImages()){
             System.out.println(image.getImageId());
             System.out.println(image.getImageName());
         }
